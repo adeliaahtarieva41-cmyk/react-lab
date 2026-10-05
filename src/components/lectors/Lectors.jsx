@@ -1,9 +1,7 @@
-// src/components/lectors/Lectors.jsx
 import React, { useState } from 'react';
 import { lecturers } from '../../data/lecturers';
 import './Lectors.css';
 
-/* ---------- Детальная карточка лектора ---------- */
 const LecturerDetail = ({ lecturer, onBack }) => {
   return (
     <div className="lecturer-detail">
@@ -64,7 +62,6 @@ const LecturerDetail = ({ lecturer, onBack }) => {
   );
 };
 
-/* ---------- Карточка лектора в списке ---------- */
 const LecturerCard = ({ lecturer, onClick }) => {
   return (
     <div className="lecturer-list-card" onClick={onClick}>
@@ -84,7 +81,6 @@ const LecturerCard = ({ lecturer, onClick }) => {
   );
 };
 
-/* ---------- Главный компонент ---------- */
 const Lectors = () => {
   const [selectedId, setSelectedId] = useState(null);
 

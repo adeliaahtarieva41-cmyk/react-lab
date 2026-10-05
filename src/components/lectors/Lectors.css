@@ -10,10 +10,9 @@
   color: #1a1a1a;
 }
 
-/* ==== СПИСОК ЛЕКТОРОВ ==== */
 .lecturers-list {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);  /* ← ровно 2 колонки */
+  grid-template-columns: repeat(2, 1fr);
   gap: 28px;
 }
 
