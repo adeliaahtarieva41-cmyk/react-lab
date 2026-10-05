@@ -1,0 +1,298 @@
+.lectors-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.lectors-container > h2 {
+  font-size: 30px;
+  margin-bottom: 32px;
+  color: #1a1a1a;
+}
+
+/* ==== СПИСОК ЛЕКТОРОВ ==== */
+.lecturers-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* ← ровно 2 колонки */
+  gap: 28px;
+}
+
+.lecturer-list-card {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  background-color: #fff;
+  border: 1px solid #ececec;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.lecturer-list-card:hover {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
+}
+
+.list-photo {
+  flex: 0 0 140px;
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #e9e9e9;
+}
+
+.list-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.list-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 15px;
+  background-color: #e9e9e9;
+}
+
+.list-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.list-info h3 {
+  font-size: 20px;
+  margin: 0;
+  color: #1a1a1a;
+  line-height: 1.3;
+}
+
+.list-role {
+  font-size: 15.5px;
+  color: #777;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.more-btn {
+  align-self: flex-start;
+  background: transparent;
+  border: none;
+  color: #3d6cd1;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.more-btn:hover {
+  text-decoration: underline;
+}
+
+
+@media (max-width: 900px) {
+  .lecturers-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .lecturer-list-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .list-photo {
+    flex: 0 0 180px;
+    width: 180px;
+    height: 180px;
+  }
+
+  .more-btn {
+    align-self: center;
+  }
+}
+
+.back-btn {
+  background: transparent;
+  border: none;
+  color: #3d6cd1;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 8px 0;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.back-btn:hover {
+  text-decoration: underline;
+}
+
+.lecturer-card {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 32px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background-color: #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #888;
+  font-size: 14px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.lecturer-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.lecturer-info h3 {
+  font-size: 24px;
+  margin: 0 0 16px;
+  color: #1a1a1a;
+}
+
+.lecturer-meta {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lecturer-meta li {
+  padding: 8px 0;
+  border-bottom: 1px dashed #ececec;
+  font-size: 15px;
+  color: #444;
+  line-height: 1.5;
+}
+
+.lecturer-meta li:last-child {
+  border-bottom: none;
+}
+
+.lecturer-meta strong {
+  color: #1a1a1a;
+}
+
+.lecturer-section {
+  margin-bottom: 48px;
+}
+
+.lecturer-section h3 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+.disciplines-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.discipline-card {
+  background-color: #ffffff;
+  border: 1px solid #ececec;
+  border-radius: 12px;
+  padding: 24px;
+  transition: box-shadow 0.3s ease;
+}
+
+.discipline-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.discipline-card h4 {
+  font-size: 18px;
+  margin: 0 0 8px;
+  color: #3d6cd1;
+}
+
+.discipline-desc {
+  font-size: 14px;
+  color: #777;
+  margin: 0 0 14px;
+  font-style: italic;
+}
+
+.discipline-topics {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.discipline-topics li {
+  margin-bottom: 4px;
+}
+
+.tariffs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.tariff-card {
+  background: linear-gradient(135deg, #f4f7ff 0%, #e8eefc 100%);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid #dbe4f5;
+}
+
+.tariff-name {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+}
+
+.tariff-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+@media (max-width: 900px) {
+  .tariffs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .lecturer-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .photo-placeholder {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
