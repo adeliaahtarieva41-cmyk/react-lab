@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './About.css';
 
-// 1. Данные отзывов
 const reviewsData = [
   {
     id: 1,
@@ -26,7 +25,6 @@ const reviewsData = [
   }
 ];
 
-// 2. Компонент отзывов
 const Reviews = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -78,11 +76,9 @@ const Reviews = () => {
   );
 };
 
-// 3. Главная страница
 const About = () => {
   return (
     <div className="about-container">
-      {/* --- HERO БЛОК (ваш существующий код) --- */}
       <section className="lectors-hero">
         <div className="hero-image">
           <div className="image-placeholder">
@@ -120,10 +116,8 @@ const About = () => {
         </div>
       </section>
 
-      {/* --- НОВЫЙ БЛОК ОТЗЫВОВ --- */}
       <Reviews />
 
-      {/* --- БЛОК "О НАС" --- */}
       <section className="platform-info" id="about">
         <h2>О нашей платформе</h2>
         <div className="info-grid">
