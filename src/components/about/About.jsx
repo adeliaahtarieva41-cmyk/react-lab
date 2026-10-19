@@ -1,22 +1,95 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './About.css';
 
-const About = () => {
-  const stats = [
-    { value: '120+', label: 'лекторов' },
-    { value: '45', label: 'компаний-партнёров' },
-    { value: '3 500+', label: 'проведённых лекций' }
-  ];
+// 1. Данные отзывов
+const reviewsData = [
+  {
+    id: 1,
+    name: 'Анна Смирнова',
+    role: 'HR-директор, IT-компания',
+    text: 'Платформа помогла нам быстро найти лектора по Python для корпоративного обучения. Удобный поиск и понятные тарифы!',
+    rating: 5
+  },
+  {
+    id: 2,
+    name: 'Михаил Иванов',
+    role: 'Студент МФТИ',
+    text: 'Занимался с Дмитрием Сергеевичем. Очень доступно объясняет сложные алгоритмы. Заявку оставил прямо на сайте — перезвонили через 15 минут.',
+    rating: 5
+  },
+  {
+    id: 3,
+    name: 'Елена Петрова',
+    role: 'Организатор конференций',
+    text: 'Сотрудничаем с платформой уже год. Всегда находим спикеров на любые темы: от экономики до дизайна.',
+    rating: 5
+  }
+];
+
+// 2. Компонент отзывов
+const Reviews = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextReview = () => {
+    setCurrentIndex((prev) => (prev + 1) % reviewsData.length);
+  };
+
+  const prevReview = () => {
+    setCurrentIndex((prev) => (prev - 1 + reviewsData.length) % reviewsData.length);
+  };
+
+  const currentReview = reviewsData[currentIndex];
 
   return (
+    <section className="reviews-section" id="reviews">
+      <h2>Отзывы о платформе</h2>
+      
+      <div className="reviews-carousel">
+        <button className="carousel-btn prev" onClick={prevReview} aria-label="Предыдущий отзыв">
+          ←
+        </button>
+
+        <div className="review-card">
+          <div className="review-stars">
+            {'★'.repeat(currentReview.rating)}
+          </div>
+          <p className="review-text">«{currentReview.text}»</p>
+          <div className="review-author">
+            <strong>{currentReview.name}</strong>
+            <span>{currentReview.role}</span>
+          </div>
+        </div>
+
+        <button className="carousel-btn next" onClick={nextReview} aria-label="Следующий отзыв">
+          →
+        </button>
+      </div>
+
+      <div className="carousel-dots">
+        {reviewsData.map((_, idx) => (
+          <span
+            key={idx}
+            className={`dot ${idx === currentIndex ? 'active' : ''}`}
+            onClick={() => setCurrentIndex(idx)}
+          />
+        ))}
+      </div>
+    </section>
+  );
+};
+
+// 3. Главная страница
+const About = () => {
+  return (
     <div className="about-container">
+      {/* --- HERO БЛОК (ваш существующий код) --- */}
       <section className="lectors-hero">
         <div className="hero-image">
           <div className="image-placeholder">
-            <img
-              src="/photo1.jpg"
-              alt="Преподаватель в аудитории"
-              className="hero-img"
+            <img 
+              src="/photo1.jpg" 
+              alt="Преподаватель в аудитории" 
+              className="hero-img" 
             />
           </div>
         </div>
@@ -29,19 +102,29 @@ const About = () => {
           </p>
 
           <div className="hero-stats">
-            {stats.map((s, i) => (
-              <div key={i} className="stat">
-                <span className="stat-value">{s.value}</span>
-                <span className="stat-label">{s.label}</span>
-              </div>
-            ))}
+            <div className="stat">
+              <span className="stat-value">120+</span>
+              <span className="stat-label">лекторов</span>
+            </div>
+            <div className="stat">
+              <span className="stat-value">45</span>
+              <span className="stat-label">компаний-партнёров</span>
+            </div>
+            <div className="stat">
+              <span className="stat-value">3 500+</span>
+              <span className="stat-label">проведённых лекций</span>
+            </div>
           </div>
 
           <button className="cta-btn">Найти лектора</button>
         </div>
       </section>
 
-      <section className="platform-info">
+      {/* --- НОВЫЙ БЛОК ОТЗЫВОВ --- */}
+      <Reviews />
+
+      {/* --- БЛОК "О НАС" --- */}
+      <section className="platform-info" id="about">
         <h2>О нашей платформе</h2>
         <div className="info-grid">
           <div className="info-card">

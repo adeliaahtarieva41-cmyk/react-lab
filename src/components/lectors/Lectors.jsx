@@ -25,6 +25,9 @@ const LecturerDetail = ({ lecturer, onBack }) => {
             <li><strong>Стаж:</strong> {lecturer.experience}</li>
             <li><strong>Учёная степень:</strong> {lecturer.degree}</li>
           </ul>
+          
+          <button className="apply-btn"onClick={() => onApply(lecturer)}> Оставить заявку</button>
+
         </div>
       </article>
 
